@@ -11,12 +11,11 @@ count_calories = 0
 
 with open('input.txt') as file:
     for line in file.readlines():
-        if not line:
-            break
-        try:
-            x = int(str(line.strip()))
-            count_calories += x
-        except:
+        line = line.strip()
+        if line == "":
+            count_calories = 0
+        else:
+            count_calories += int(line)
             if count_calories >= max_calories:
                 max_calories = count_calories
                 count_calories = 0
